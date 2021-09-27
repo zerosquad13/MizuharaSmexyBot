@@ -6,15 +6,13 @@ import time
 import traceback
 from functools import wraps
 from typing import Callable, Coroutine, Dict, List, Tuple, Union
-
 import aiohttp
 from PIL import Image
 from pyrogram import Client
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Chat, Message, User
-
-from MizuharaSmexyBot import OWNER_ID, SUPPORT_CHAT
-from MizuharaSmexyBot.services.pyrogram import pbot
+from vexana import OWNER_ID, GBAN_LOGS
+from vexana.pyrogramee.pyrogram import pbot
 
 
 def get_user(message: Message, text: str) -> [int, str, None]:
@@ -301,6 +299,8 @@ def admins_only(func: Callable) -> Coroutine:
     return wrapper
 
 
+# @Mr_Dark_Prince
+def capture_err(func):
     @wraps(func)
     async def capture(client, message, *args, **kwargs):
         try:
@@ -321,32 +321,13 @@ def admins_only(func: Callable) -> Coroutine:
                 ),
             )
             for x in error_feedback:
-                await pbot.send_message(SUPPORT_CHAT, x)
+                await pbot.send_message(GBAN_LOGS, x)
             raise err
 
     return capture
 
 
-# Ported from https://github.com/TheHamkerCat/WilliamButcherBot
-"""
-MIT License
-Copyright (c) 2021 TheHamkerCat
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-"""
+# Special credits to TheHamkerCat
 
 
 async def member_permissions(chat_id, user_id):
