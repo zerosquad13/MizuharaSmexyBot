@@ -17,6 +17,23 @@ def get_user_list(__init__, key):
     with open("{}/MizuharaSmexyBot/{}".format(os.getcwd(), __init__), "r") as json_file:
         return json.load(json_file)[key]
 
+
+# enable logging
+FORMAT = "[Mizuhara] %(message)s"
+logging.basicConfig(
+    handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
+    level=logging.INFO,
+    format=FORMAT,
+    datefmt="[%X]",
+)
+logging.getLogger("pyrogram").setLevel(logging.WARNING)
+
+LOGGER = logging.getLogger(__name__)
+LOGGER.info("Mizuhara is starting. | An AnuragSharma Union Project. | Licensed under GPLv3.")
+LOGGER.info("Not affiliated to Shie Hashaikai or Villain in any way whatsoever.")
+LOGGER.info("Project maintained by: github.com/AnuragSharma080 (t.me/Pain_to_this_world)")
+
+# enable logging
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
@@ -27,10 +44,12 @@ LOGGER = logging.getLogger(__name__)
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 6:
-    LOGGER.error("You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting.")
-    quit(1)
+    LOGGER.error(
+        "You MUST have a python version of at least 3.6! Multiple features depend on this. Bot quitting."
+    )
+    sys.exit(1)
 
-ENV = bool(os.environ.get('ENV', False))
+ENV = bool(os.environ.get("ENV", False))
 
 if ENV:
     TOKEN = os.environ.get('TOKEN', None)
