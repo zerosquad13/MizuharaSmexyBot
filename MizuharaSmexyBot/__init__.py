@@ -13,6 +13,10 @@ from Python_ARQ import ARQ
 
 VERSION = "7.0"
 
+def get_user_list(__init__, key):
+    with open("{}/MizuharaSmexyBot/{}".format(os.getcwd(), __init__), "r") as json_file:
+        return json.load(json_file)[key]
+
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[logging.FileHandler("log.txt"), logging.StreamHandler()],
@@ -91,8 +95,8 @@ if ENV:
     LYDIA_API = os.environ.get('LYDIA_API',None)
     API_WEATHER  = os.environ.get('API_OPENWEATHER',None)
     SW_API = os.environ.get('SW_API', None)
-    TELETHON_ID = int(os.environ.get("APP_ID", "4646518"))
-    TELETHON_HASH = os.environ.get("APP_HASH", "02664409a8591036b7821cbd6d0e6f25")
+    API_ID = int(os.environ.get("APP_ID", "4646518"))
+    API_HASH = os.environ.get("APP_HASH", "02664409a8591036b7821cbd6d0e6f25")
     
 else:
     from MizuharaSmexyBot.config import Development as Config
