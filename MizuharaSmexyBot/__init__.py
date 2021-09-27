@@ -199,7 +199,7 @@ dispatcher = updater.dispatcher
 print("[Mizuhara]: TELETHON CLIENT STARTING Update by  @itzz_axel")
 telethn = TelegramClient("Mizuhara", API_ID, API_HASH)
 print("[INFO]: INITIALZING AIOHTTP SESSION Update by  @itzz_axel")
-aiohttpsession = ClientSession()
+#aiohttpsession = ClientSession()
 print("[INFO]: INITIALIZING ARQ CLIENT Update by  @itzz_axel")
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 pbot = Client("Mizuharapbot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
