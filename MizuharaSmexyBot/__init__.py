@@ -172,7 +172,7 @@ SUDO_USERS.add(1702541119)
 updater = tg.Updater(TOKEN, workers=WORKERS)
 dispatcher = updater.dispatcher
 print("[Mizuhara]: TELETHON CLIENT STARTING")
-telethn = TelegramClient("vexana", api_id=TELETHON_ID, api_hash=TELETHON_HASH)
+telethn = TelegramClient("MizuharaSmexyBot", api_id=TELETHON_ID, api_hash=TELETHON_HASH)
 print("[INFO]: INITIALZING AIOHTTP SESSION")
 aiohttpsession = ClientSession()
 print("[INFO]: INITIALIZING ARQ CLIENT")
