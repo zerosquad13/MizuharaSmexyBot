@@ -3,10 +3,12 @@ import os
 import sys
 import time
 import spamwatch
+import aiohttp
 
 import telegram.ext as tg
 from pyrogram import Client, errors
 from telethon import TelegramClient
+from Python_ARQ import ARQ
 
 StartTime = time.time()
 
@@ -104,7 +106,7 @@ if ENV:
         raise Exception("Your blacklisted chats list does not contain valid integers.")
 
 else:
-    from LaylaRobot.config import Development as Config
+    from MizuharaSmexyBot.config import Development as Config
 
     TOKEN = Config.TOKEN
 
@@ -193,9 +195,18 @@ else:
 
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-telethn = TelegramClient("Mizuhara", API_ID, API_HASH)
-pbot = Client("Mizuharapbot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 dispatcher = updater.dispatcher
+print("[Mizuhara]: TELETHON CLIENT STARTING Update by  @itzz_axel")
+telethn = TelegramClient("Mizuhara", API_ID, API_HASH)
+print("[INFO]: INITIALZING AIOHTTP SESSION Update by  @itzz_axel")
+aiohttpsession = ClientSession()
+print("[INFO]: INITIALIZING ARQ CLIENT Update by  @itzz_axel")
+arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
+pbot = Client("Mizuharapbot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+
+apps = []
+apps.append(pbot)
+
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
