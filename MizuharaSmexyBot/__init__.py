@@ -200,7 +200,7 @@ print("[INFO]: INITIALZING AIOHTTP SESSION")
 aiohttpsession = ClientSession()
 print("[INFO]: INITIALIZING ARQ CLIENT")
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
-pbot = Client("Mizuharapbot", api_id=TAPI_ID, api_hash=API_HASH, bot_token=TOKEN)
+pbot = Client("Mizuharapbot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 apps = []
 apps.append(pbot)
