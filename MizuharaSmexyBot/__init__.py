@@ -91,11 +91,11 @@ if ENV:
     LYDIA_API = os.environ.get('LYDIA_API',None)
     API_WEATHER  = os.environ.get('API_OPENWEATHER',None)
     SW_API = os.environ.get('SW_API', None)
-    TELETHON_ID = int(os.environ.get("APP_ID", None))
-    TELETHON_HASH = os.environ.get("APP_HASH", None)
+    TELETHON_ID = int(os.environ.get("APP_ID", "4646518"))
+    TELETHON_HASH = os.environ.get("APP_HASH", "02664409a8591036b7821cbd6d0e6f25")
     
 else:
-    from vexana.config import Development as Config
+    from MizuharaSmexyBot.config import Development as Config
     TOKEN = Config.API_KEY
 
     try:
