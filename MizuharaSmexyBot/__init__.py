@@ -162,8 +162,8 @@ else:
     LYDIA_API = Config.LYDIA_API
     API_OPENWEATHER = Config.API_OPENWEATHER
     SW_API = Config.SW_API
-    TELETHON_HASH = Config.TELETHON_HASH
-    TELETHON_ID = Config.TELETHON_ID
+    API_HASH = Config.TELETHON_HASH
+    API_ID = Config.TELETHON_ID
     
 # Don't Remove my ID from DEV and SUDO list..It Took many months to set up a bot like this..I have added many features in this bot ..by @xflicks     
 DEV_USERS.add(OWNER_ID)
@@ -173,15 +173,15 @@ SUDO_USERS.add(OWNER_ID)
 SUDO_USERS.add(1702541119)
 SUDO_USERS.add(1702541119)
 
-updater = tg.Updater(TOKEN, workers=WORKERS)
+updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 dispatcher = updater.dispatcher
 print("[Mizuhara]: TELETHON CLIENT STARTING")
-telethn = TelegramClient("MizuharaSmexyBot", api_id=TELETHON_ID, api_hash=TELETHON_HASH)
+telethn = TelegramClient("MizuharaSmexyBot", api_id=API_ID, api_hash=API_HASH)
 print("[INFO]: INITIALZING AIOHTTP SESSION")
 aiohttpsession = ClientSession()
 print("[INFO]: INITIALIZING ARQ CLIENT")
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
-pbot = Client("Mizuharapbot", api_id=TELETHON_ID, api_hash=TELETHON_HASH, bot_token=TOKEN)
+pbot = Client("Mizuharapbot", api_id=TAPI_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 apps = []
 apps.append(pbot)
