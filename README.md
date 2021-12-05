@@ -39,10 +39,9 @@ Turn on worker dyno (Don't worry It's free :D) & Webhook
 Now send the bot /start, If it doesn't respond go to https://dashboard.heroku.com/apps/(app-name)/settings and remove webhook and port.
 ```
 
-[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https%3A%2F%2Fgithub.com%2Fzerosquad13080%2FMizuharaSmexyBot&template=https%3A%2F%2Fgithub.com%2Fzerosquad13080%2FMizuharaSmexybot)
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/zerosquad13/MizuharaSmexyBot"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blue?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
-
-
+```
 </details>  
 <details>
   <summary>Steps to self Host!! </summary>
